@@ -1,3 +1,4 @@
+DROP DATABASE ig_clone;
 
 CREATE DATABASE ig_clone;
 USE DATABASE ig_clone;
