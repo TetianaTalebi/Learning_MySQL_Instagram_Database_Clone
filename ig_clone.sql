@@ -1,1 +1,2 @@
 CREATE DATABASE ig_clone;
+USE DATABASE ig_clone;
