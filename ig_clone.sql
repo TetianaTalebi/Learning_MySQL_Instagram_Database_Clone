@@ -35,3 +35,15 @@ CREATE TABLE likes(
     FOREIGN KEY(photo_id) REFERENCES photos(id),
     PRIMARY KEY(user_id, photo_id)
 );
+
+-- In case of our app, when a user1 follows a user2, the user2 may or may not follow a user1 back. So, it's one way relationship.
+CREATE TABLE follows(
+    follower_id INTEGER NOT NULL,
+    followee_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    -- Both of these (follower_id and followee_id) relate to users.id
+    FOREIGN KEY(follower_id) REFERENCES users(id),
+    FOREIGN KEY(followee_id) REFERENCES users(id),
+    -- A user1 can not follow a user2 twice
+    PRIMARY KEY(follower_id, followee_id)
+);
