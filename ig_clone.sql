@@ -47,3 +47,9 @@ CREATE TABLE follows(
     -- A user1 can not follow a user2 twice
     PRIMARY KEY(follower_id, followee_id)
 );
+
+CREATE TABLE tags(
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    tag_name VARCHAR(255) UNIQUE,
+    created_at TIMESTAMP DEFAULT NOW()
+);
