@@ -11,5 +11,12 @@ GROUP BY day
 ORDER BY total DESC LIMIT 0,1;
 
 
+-- 3. Finding the users who have never posted a photo
+-- (i.e. identifying inactive users)
+
+SELECT username FROM users
+LEFT JOIN photos ON users.id=photos.user_id
+WHERE photos.id IS NULL;
+
 
 
