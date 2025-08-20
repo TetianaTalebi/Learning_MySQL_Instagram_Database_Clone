@@ -45,6 +45,14 @@ GROUP BY tags.id
 -- instead of working with strings
 ORDER BY total DESC LIMIT 0,5;
 
+-- 7. Finding the users who liked every single photo on the site
+
+SELECT username, COUNT(*) AS num_likes FROM users
+INNER JOIN likes ON likes.user_id=users.id
+GROUP BY users.id
+HAVING num_likes = (SELECT COUNT(*) FROM photos);
+
+
 
 
 
