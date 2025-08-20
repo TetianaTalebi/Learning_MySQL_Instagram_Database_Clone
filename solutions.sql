@@ -26,5 +26,18 @@ INNER JOIN likes ON photos.id = likes.photo_id
 GROUP BY photos.id
 ORDER BY total DESC LIMIT 0,1;
 
+-- 5. Calculating AVG number of photos per user
+-- We have to take the total number of photos and divide it by the total number of users.
+-- To divide one by another we have to use subqueries.
+
+SELECT 
+    ( SELECT COUNT(*) FROM photos ) / 
+    (SELECT COUNT(*) FROM users) 
+AS 'AVG number of photos per user';
+
+
+
+
+
 
 
