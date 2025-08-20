@@ -35,6 +35,16 @@ SELECT
     (SELECT COUNT(*) FROM users) 
 AS 'AVG number of photos per user';
 
+-- 6. Finding 5 the most popular hashtags
+
+SELECT tags.tag_name, COUNT(*) as total from tags
+INNER JOIN photo_tags ON photo_tags.tag_id = tags.id
+GROUP BY tags.id
+-- Grouping by tags.id instead of grouping by tags.tag_name is more easier
+-- because in this case we have to work with integers
+-- instead of working with strings
+ORDER BY total DESC LIMIT 0,5;
+
 
 
 
